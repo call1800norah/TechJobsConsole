@@ -14,8 +14,8 @@ namespace TechJobsConsole
         {
             LoadData();
             return AllJobs;
+            
         }
-
         /*
          * Returns a list of all values contained in a given column,
          * without duplicates. 
@@ -23,7 +23,7 @@ namespace TechJobsConsole
         public static List<string> FindAll(string column)
         {
             LoadData();
-
+            
             List<string> values = new List<string>();
 
             foreach (Dictionary<string, string> job in AllJobs)
@@ -36,7 +36,9 @@ namespace TechJobsConsole
                 }
             }
             return values;
+           
         }
+     
 
         public static List<Dictionary<string, string>> FindByColumnAndValue(string column, string value)
         {

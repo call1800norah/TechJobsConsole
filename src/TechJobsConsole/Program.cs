@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace TechJobsConsole
 {
@@ -37,7 +38,9 @@ namespace TechJobsConsole
                     if (columnChoice.Equals("all"))
                     {
                         PrintJobs(JobData.FindAll());
+                       
                     }
+                   
                     else
                     {
                         List<string> results = JobData.FindAll(columnChoice);
@@ -86,6 +89,7 @@ namespace TechJobsConsole
             int i = 0;
             foreach (KeyValuePair<string, string> choice in choices)
             {
+
                 choiceKeys[i] = choice.Key;
                 i++;
             }
@@ -118,7 +122,19 @@ namespace TechJobsConsole
 
         private static void PrintJobs(List<Dictionary<string, string>> someJobs)
         {
-            Console.WriteLine("printJobs is not implemented yet");
+
+            foreach (Dictionary<string,string> job in someJobs)
+            {
+                foreach(var values in job)
+                {
+                    Console.WriteLine(values.Key + ":" + values.Value + "\n");
+                   
+                }
+                Console.WriteLine("*****");
+            }
+          
+           
         }
+       
     }
 }
