@@ -14,7 +14,7 @@ namespace TechJobsConsole
         {
             LoadData();
             return AllJobs;
-            
+
         }
         /*
          * Returns a list of all values contained in a given column,
@@ -23,7 +23,7 @@ namespace TechJobsConsole
         public static List<string> FindAll(string column)
         {
             LoadData();
-            
+
             List<string> values = new List<string>();
 
             foreach (Dictionary<string, string> job in AllJobs)
@@ -36,28 +36,66 @@ namespace TechJobsConsole
                 }
             }
             return values;
-           
+
         }
-     
+
 
         public static List<Dictionary<string, string>> FindByColumnAndValue(string column, string value)
         {
             // load data, if not already loaded
             LoadData();
-
+            
             List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
-
+            
             foreach (Dictionary<string, string> row in AllJobs)
             {
                 string aValue = row[column];
-
-                if (aValue.Contains(value))
+                if (aValue.ToLower().Contains(value))
                 {
                     jobs.Add(row);
                 }
-            }
+              
+                
+                {
 
+                }
+            }
             return jobs;
+        }
+
+
+
+        public static List<Dictionary<string, string>> FindByValue(string value)
+        {
+            List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
+
+            LoadData();
+           
+            foreach (Dictionary<string, string> items in AllJobs)
+            {
+               
+                foreach (KeyValuePair<string, string> values in items)
+                {
+                    
+                    if (values.Value.ToLower().Contains(value))
+                    {
+                       
+                        jobs.Add(items);
+                       
+                        
+                    {
+
+                           
+                }
+ 
+            }
+                   
+                    
+        }
+                
+    }
+            return jobs;
+
         }
 
         /*
@@ -88,10 +126,11 @@ namespace TechJobsConsole
 
             string[] headers = rows[0];
             rows.Remove(headers);
-
+  
             // Parse each row array into a more friendly Dictionary
             foreach (string[] row in rows)
             {
+               
                 Dictionary<string, string> rowDict = new Dictionary<string, string>();
 
                 for (int i = 0; i < headers.Length; i++)
@@ -127,6 +166,7 @@ namespace TechJobsConsole
                     {
                         isBetweenQuotes = !isBetweenQuotes;
                     }
+                    
                     else
                     {
                         valueBuilder.Append(c);
