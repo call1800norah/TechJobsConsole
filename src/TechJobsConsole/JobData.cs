@@ -54,11 +54,7 @@ namespace TechJobsConsole
                 {
                     jobs.Add(row);
                 }
-              
-                
-                {
-
-                }
+   
             }
             return jobs;
         }
@@ -77,7 +73,7 @@ namespace TechJobsConsole
                 foreach (KeyValuePair<string, string> values in items)
                 {
                     
-                    if (values.Value.ToLower().Contains(value))
+                    if (!jobs.Contains(items) && values.Value.ToLower().Contains(value))
                     {
                        
                         jobs.Add(items);

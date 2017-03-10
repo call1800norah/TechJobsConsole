@@ -133,13 +133,18 @@ namespace TechJobsConsole
                 {
 
                         Console.WriteLine(values.Key + ":" + values.Value + "\n");
-                    
-                               
+                   
+
                 }
                 Console.WriteLine("*****" + "\n");
+                
+
             }
-          
-           
+            if (someJobs.Count == 0)
+            {
+                Console.WriteLine("No jobs found");
+            }
+
         }
        
     }
